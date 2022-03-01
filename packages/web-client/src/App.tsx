@@ -1,56 +1,23 @@
-import { useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+// import "./styles/App.css";
+import { Routes, Route } from "react-router-dom";
+import { Home } from "./pages/Home";
+import { Calculator } from "./pages/Calculator";
+import { About } from "./pages/About";
+import { Nav } from "./components/Nav";
+import { AppContainer } from "./styles/pages/AppLayout.styled"
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {" | "}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-
-          {/* Test Fetch */}
-          <button
-            onClick={() => {
-              fetch("http://localhost:3001/", {})
-                .then((response) => response.json())
-                .then((data) => console.log(data));
-            }}
-          >
-            GET SOME DATA
-          </button>
-
-        </p>
+    <AppContainer className="App">
+      <header>
+        <Nav />
       </header>
-    </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/calculator" element={<Calculator />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </AppContainer>
   );
 }
 
