@@ -2,12 +2,10 @@ import styled from "styled-components";
 
 export const StyledNav = styled.nav`
   background-color: rgb(21 128 61);
-  padding: 0;
-  padding-inline: 1.5rem;
 
   @media (min-width: 500px) {
-    padding-inline: 1.5rem;
-    height: inherit;
+    height: 100vh;
+    position: fixed;
   }
 
   ul {
@@ -21,15 +19,21 @@ export const StyledNav = styled.nav`
       flex-direction: column;
     }
 
-
     li {
       list-style: none;
       a {
-        display: block;
+        display: flex;
+        gap: 0.5rem;
+        align-items: end;
         padding: 1rem;
         --tw-text-opacity: 1;
         color: rgba(243, 244, 246, var(--tw-text-opacity));
         text-decoration: none;
+
+        .icon-wrapper {
+          width: 2rem;
+          height: 2rem;
+        }
       }
     }
   }

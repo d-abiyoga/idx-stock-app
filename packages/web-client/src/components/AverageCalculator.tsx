@@ -10,6 +10,7 @@ import { DropdownCombobox } from "../components/DropdownCombobox";
 import { formatNumber } from "../utils/formatNumber";
 import { calculate } from "../utils/calculate";
 import { CalcInput } from "./CalcInput";
+import { StockPriceInput } from "./StockPriceInput";
 import { CalcOutput } from "./CalcOutput";
 import { Container } from "../styles/AverageCalculatorLayout.styled";
 import { CalcBox } from "../styles/components/Input.styled";
@@ -49,7 +50,7 @@ export const AverageCalculator: FC<Props> = (props) => {
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
-    const currAvgPrice = parseInt(currAvgPriceRef.current.value);
+    const currAvgPrice = parseFloat(currAvgPriceRef.current.value);
     const currShareQuantity = parseInt(currShareQuantityRef.current.value);
     const addBuyPrice = parseInt(addBuyPriceRef.current.value);
     const addBuyQuantity = parseInt(addBuyQuantityRef.current.value);
@@ -104,11 +105,12 @@ export const AverageCalculator: FC<Props> = (props) => {
             />
           </div>
 
-          <CalcInput
+          <StockPriceInput
             inputFor="currAvgPrice"
             label="Current Average Price"
             pholder="50"
             inputRef={currAvgPriceRef}
+            step={0.01}
           />
           <CalcInput
             inputFor="currShareQuantity"
@@ -116,11 +118,12 @@ export const AverageCalculator: FC<Props> = (props) => {
             pholder="0"
             inputRef={currShareQuantityRef}
           />
-          <CalcInput
+          <StockPriceInput
             inputFor="addBuyPrice"
             label="Additional Buy Price"
             pholder="50"
             inputRef={addBuyPriceRef}
+            step={1}
           />
 
           <CalcInput

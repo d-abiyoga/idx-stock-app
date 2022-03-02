@@ -3,7 +3,6 @@ import { useState } from "react";
 export const AddNewCompany = () => {
   const [ticker, setTicker] = useState("");
   const [companyName, setCompanyName] = useState("");
-  console.log('Hello from AddNewCompany')
 
   const handleSubmit = (evt:any) => {
     evt.preventDefault();

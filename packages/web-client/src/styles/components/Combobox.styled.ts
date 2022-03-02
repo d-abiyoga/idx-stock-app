@@ -19,9 +19,6 @@ export const Menu = styled.ul`
   width: 100%;
   z-index: 1;
 
-  /* li:first-of-type {
-    padding-top: 1rem;
-  } */
 
   li {
     color: gray;

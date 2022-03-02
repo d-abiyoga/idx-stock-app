@@ -2,6 +2,7 @@ import { useState, useEffect, MouseEvent } from "react";
 import { H1, H2 } from "../styles/components/Headings.styled";
 import { AverageCalculator } from "../components/AverageCalculator";
 import { CalculaterPage } from "../styles/pages/Calculator.styled";
+import { CircularButton } from "../styles/components/Button.styled";
 import axios from "axios";
 
 export const Calculator = () => {
@@ -27,7 +28,7 @@ export const Calculator = () => {
         {[...Array(calcCount)].map((e, i) => (
           <AverageCalculator key={i} companyList={companies} />
         ))}
-        <button onClick={handleClick}>Add</button>
+        <CircularButton onClick={handleClick}>Add</CircularButton>
       </section>
     </CalculaterPage>
   );
