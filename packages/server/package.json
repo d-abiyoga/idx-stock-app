@@ -10,7 +10,15 @@
     "test": "jest",
     "build": "tsc -p tsconfig.build.json",
     "serve": "node dist/app.js",
-    "precommit": "echo 'precommit script from server'"
+    "precommit": "echo 'precommit script from server' && lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --quiet --fix"
+    ],
+    "*.{json,md,html,js,ts}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "body-parser": "^1.19.2",
