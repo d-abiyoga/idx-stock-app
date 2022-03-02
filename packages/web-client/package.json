@@ -1,13 +1,15 @@
 {
     "name": "@idx-stock-app/web-client",
     "private": true,
-    "version": "0.0.0",
+    "version": "0.0.1",
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",
         "preview": "vite preview",
         "test": "jest",
-        "precommit": "echo 'precommit script from web-client' && lint-staged"
+        "precommit": "echo 'precommit script from web-client' && lint-staged",
+        "storybook": "start-storybook -p 6006",
+        "build-storybook": "build-storybook"
     },
     "lint-staged": {
         "*.{js,ts,tsx, jsx}": [
@@ -30,9 +32,16 @@
         "ts-jest": "^27.1.3"
     },
     "devDependencies": {
+        "@babel/core": "^7.17.5",
         "@babel/preset-env": "^7.16.11",
         "@babel/preset-react": "^7.16.7",
         "@babel/preset-typescript": "^7.16.7",
+        "@storybook/addon-actions": "^6.4.19",
+        "@storybook/addon-essentials": "^6.4.19",
+        "@storybook/addon-interactions": "^6.4.19",
+        "@storybook/addon-links": "^6.4.19",
+        "@storybook/react": "^6.4.19",
+        "@storybook/testing-library": "^0.0.9",
         "@testing-library/jest-dom": "^5.16.2",
         "@testing-library/react": "^12.1.3",
         "@testing-library/user-event": "^13.5.0",
@@ -40,6 +49,7 @@
         "@types/react": "^17.0.33",
         "@types/react-dom": "^17.0.10",
         "@vitejs/plugin-react": "^1.0.7",
+        "babel-loader": "^8.2.3",
         "husky": "^7.0.4",
         "jest": "^27.5.1",
         "ts-jest": "^27.1.3",
