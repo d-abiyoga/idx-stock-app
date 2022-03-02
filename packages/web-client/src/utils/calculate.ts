@@ -30,7 +30,7 @@ export const calculate = {
   targetPotGL: (targetPrice: number, newAvgPrice: number): number => {
     return ((targetPrice - newAvgPrice) / newAvgPrice) * 100;
   },
-  newPotGL: (addBuyPrice: number, newAvgPrice: number): number => {
-    return ((addBuyPrice - newAvgPrice) / newAvgPrice) * 100;
+  newPotGL: (marketPrice: number, newAvgPrice: number): number => {
+    return ((marketPrice - newAvgPrice) / newAvgPrice) * 100;
   },
 };
