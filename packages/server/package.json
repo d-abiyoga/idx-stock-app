@@ -9,7 +9,8 @@
     "dev": "cross-env NODE_ENV=development nodemon ./src/server.ts",
     "test": "jest",
     "build": "tsc -p tsconfig.build.json",
-    "serve": "node dist/app.js"
+    "serve": "node dist/app.js",
+    "precommit": "echo 'precommit script from server'"
   },
   "dependencies": {
     "body-parser": "^1.19.2",

@@ -9,7 +9,7 @@ export class CompanyController {
       .then((docs) => {
         res.status(200).json({
           message: "Fetched data",
-          docs: docs,
+          companies: docs,
         });
       })
       .catch((err) => {
