@@ -11,10 +11,17 @@
   ],
   "scripts": {
     "start": "lerna run --parallel start",
-    "dev": "lerna run --parallel dev"
+    "dev": "lerna run --parallel dev",
+    "test": "lerna run jest",
+    "test-web": "lerna exec 'yarn run test' --scope @idx-stock-app/web-client",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "lerna": "^4.0.0",
-    "typescript": "^4.5.5"
+    "typescript": "^4.5.5",
+    "husky": "^7.0.0"
+  },
+  "dependencies": {
+    "lint-staged": "^12.3.4"
   }
 }
