@@ -9,7 +9,7 @@ export default {
         bgColor: { control: 'color' },
         padding: { control: 'text' },
         borderRadius: { control: 'text' },
-        // width: { control: 'text' },
+        negative: { control: 'boolean' },
     },
 } as ComponentMeta<typeof OutputBox>;
 
@@ -18,4 +18,10 @@ const Template: ComponentStory<typeof OutputBox> = (args) => <OutputBox {...args
 export const Default = Template.bind({});
 Default.args = {
     children: 'DefaultOutputBox',
+};
+
+export const NegativeValue = Template.bind({});
+NegativeValue.args = {
+    children: '-00.00 (Negative)',
+    negative: true,
 };

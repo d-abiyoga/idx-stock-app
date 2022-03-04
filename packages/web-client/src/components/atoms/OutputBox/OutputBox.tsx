@@ -7,16 +7,18 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
     children: ReactNode;
     padding?: number;
     borderRadius?: string;
+    negative?: boolean;
 }
 
-export const OutputBox: FC<Props> = ({ ...props }) => {
-    return <Div>{props.children}</Div>;
+export const OutputBox: FC<Props> = (props) => {
+    return <Div {...props}>{props.children}</Div>;
 };
 
 const Div = styled.div<Props>`
     --secondary-color: #f3f4f6;
+
     background-color: ${(props) => props.bgColor || 'var(--secondary-color)'};
-    color: ${(props) => props.textColor || '#000'};
+    color: ${({ negative }) => (negative ? 'red' : 'black')};
     border-radius: ${(props) => props.borderRadius || 0.75}rem;
     padding: ${(props) => props.padding || 0.5}rem;
 
@@ -25,4 +27,9 @@ const Div = styled.div<Props>`
     min-width: 25ch;
     min-heigth: 1.75rem;
     line-height: 1.25rem;
+
+    /*TODO: implement global breakpoint  */
+    @media (max-width: 500px) {
+        width: 100%;
+    }
 `;

@@ -112,7 +112,7 @@ const Menu = styled.ul`
 const Wrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.5rem;
     justify-content: space-between;
     align-items: center;
 

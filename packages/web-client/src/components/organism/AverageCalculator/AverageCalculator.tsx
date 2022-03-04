@@ -1,5 +1,4 @@
 import { MutableRefObject, useRef, useState, useEffect, FormEventHandler, FC } from 'react';
-import { formatNumber } from '../../../utils/formatNumber';
 import { calculate } from '../../..//utils/calculate';
 import { Container } from './AverageCalculatorLayout.styled';
 import { H2 } from '../../../styles/components/Headings.styled';
@@ -7,6 +6,7 @@ import InputItem from '../../molecules/InputItem';
 import DropdownCombobox from '../../molecules/DropdownCombobox';
 import Button from '../../atoms/Button';
 import OutputItem from '../../molecules/OutputItem';
+import Card from '../../atoms/Card';
 
 type companyType = {
     ticker: string;
@@ -78,7 +78,7 @@ export const AverageCalculator: FC<Props> = (props) => {
         <>
             <H2>Stock Average Price</H2>
             <Container className="calc-container">
-                <form onSubmit={handleSubmit} className="input-container">
+                <Card as="form" onSubmit={handleSubmit} extendWidth flex>
                     <DropdownCombobox
                         labelName="Ticker"
                         items={companies.map((company) => company.ticker)}
@@ -128,26 +128,45 @@ export const AverageCalculator: FC<Props> = (props) => {
                         type="number"
                     />
                     <Button>Calculate</Button>
-                </form>
+                </Card>
 
-                <div className="output-container">
-                    <OutputItem label="NewAveragePrice" output={formatNumber(output.newAvgPrice)} />
-                    <OutputItem label="Current Equity" output={formatNumber(output.currEquity)} />
+                <Card extendWidth flex>
+                    <OutputItem
+                        label="NewAveragePrice"
+                        outputType="currency"
+                        output={output.newAvgPrice}
+                    />
+                    <OutputItem
+                        label="Current Equity"
+                        outputType="currency"
+                        output={output.currEquity}
+                    />
                     <OutputItem
                         label="Additional Equity"
-                        output={formatNumber(output.additionalEquity)}
+                        outputType="currency"
+                        output={output.additionalEquity}
                     />
-                    <OutputItem label="Total Equity" output={formatNumber(output.totalEquity)} />
+                    <OutputItem
+                        label="Total Equity"
+                        outputType="currency"
+                        output={output.totalEquity}
+                    />
                     <OutputItem
                         label="Current Pot. G/L"
-                        output={`${output.currPotGL.toFixed(2)}%`}
+                        outputType="percentage"
+                        output={output.currPotGL}
                     />
-                    <OutputItem label="New Pot. G/L" output={`${output.newPotGL.toFixed(2)}%`} />
+                    <OutputItem
+                        label="New Pot. G/L"
+                        outputType="percentage"
+                        output={output.newPotGL}
+                    />
                     <OutputItem
                         label="Target Pot. G/L"
-                        output={`${output.targetPotGL.toFixed(2)}%`}
+                        outputType="percentage"
+                        output={output.targetPotGL}
                     />
-                </div>
+                </Card>
             </Container>
         </>
     );
