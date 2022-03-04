@@ -21,8 +21,8 @@ export const InputItem: FC<Props> = (props) => {
             <InputBox
                 inputRef={props.inputRef}
                 id={props.inputFor}
-                placeholder={props.stock ? '50' : '0'}
                 min={props.stock ? '50' : '0'}
+                placeholder={props.min ? String(props.min) : '0'}
                 autoComplete="off"
                 {...props}
             />
@@ -33,7 +33,7 @@ export const InputItem: FC<Props> = (props) => {
 const Wrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.5rem;
     justify-content: space-between;
     align-items: center;
 
