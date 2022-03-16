@@ -1,18 +1,23 @@
-import "dotenv/config";
-import express from "express";
-import { companyRouter } from "./routes/stock";
-import setupMiddlewares from "./config/middlewares";
+import 'dotenv/config';
+import express from 'express';
+import { authRouter } from './routes/auth';
+import { companyRouter } from './routes/company';
+import { userRouter } from './routes/user';
+
+import setupMiddlewares from './config/middlewares';
+import setupPassport from './config/passport';
 
 export function createApp(database: any) {
-  const connection = database();
+  database();
   const app = express();
+
   setupMiddlewares(app);
+  setupPassport();
 
   // Router
-  app.use("/company", companyRouter);
-  app.get("/", (req, res) => {
-    res.status(200).json({ foo: "ts-bar has been changed" });
-  });
+  app.use('/auth', authRouter);
+  app.use('/company', companyRouter);
+  app.use('/user', userRouter);
 
   return app;
 }

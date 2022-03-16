@@ -1,10 +1,7 @@
-import mongoose from "mongoose";
-
-const url = process.env.DB_URL;
+import mongoose from 'mongoose';
+import { dbUrl } from '../config/constants';
 
 export const db = async () => {
-  if(url) {
-    const client = await mongoose.connect(url);
-    return client.connection.db
-  }
+  const client = await mongoose.connect(dbUrl);
+  return client.connection.db;
 };
