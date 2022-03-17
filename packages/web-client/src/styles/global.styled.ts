@@ -1,4 +1,20 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
+import style from 'styled-theming';
+
+/* const getBoxBackground = style('mode', {
+  light: '#EEE',
+  dark: '#111',
+}); */
+
+const getBodyBackground = style('mode', {
+  light: '#EEE',
+  dark: '#111',
+});
+
+const getTextColor = style('mode', {
+  light: '#111',
+  dark: '#ffffff',
+});
 
 export const GlobalStyle = createGlobalStyle`
   /* RESET */
@@ -68,6 +84,13 @@ select {
     scroll-behavior: auto !important;
   }
 }
+
+/* GLOBAL THEME*/
+body{
+  color: ${getTextColor};
+  background-color: ${getBodyBackground};
+}
+
 
 .sr-only {
 	position: absolute;
