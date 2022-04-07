@@ -1,57 +1,76 @@
 import { FC, HTMLAttributes, MutableRefObject } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { ThemeConsumer } from 'styled-components';
+import style from 'styled-theming';
+import theme from 'styled-theming';
+import colors from '../../../styles/colors';
+import { shadow } from '../../../styles/shadow';
 
 interface Props extends HTMLAttributes<HTMLInputElement> {
-    bgColor?: string;
-    textColor?: string;
-    padding?: string;
-    borderRadius?: number;
-    placeholder?: string;
-    inputRef?: MutableRefObject<HTMLInputElement>;
+  bgColor?: string;
+  textColor?: string;
+  padding?: string;
+  borderRadius?: number;
+  placeholder?: string;
+  inputRef?: MutableRefObject<HTMLInputElement>;
 }
 
 export const InputBox: FC<Props> = ({ borderRadius = 12, padding = '0.5rem', ...props }) => {
-    return (
+  return (
+    <ThemeConsumer>
+      {() => (
         <Input
-            style={{
-                padding: padding,
-                borderRadius: `${borderRadius}px`,
-            }}
-            ref={props.inputRef}
-            {...props}
+          style={{
+            padding: padding,
+            borderRadius: `${borderRadius}px`,
+          }}
+          ref={props.inputRef}
+          {...props}
         ></Input>
-    );
+      )}
+    </ThemeConsumer>
+  );
 };
 
+const InputBoxTheme = theme('mode', {
+  light: css`
+    background-color: ${colors.primary.c100};
+  `,
+  dark: css`
+    background-color: ${colors.slate.c700};
+    outline: solid 1px ${colors.primary.c200};
+  `,
+});
+
+const getTextColor = style('mode', {
+  light: colors.slate.c800,
+  dark: colors.slate.c100,
+});
+
 const Input = styled.input<Props>`
-    --primary-color: rgba(110, 231, 183, 1);
-    --light-color: #d1fae5;
+  ${InputBoxTheme}
 
-    background-color: ${(props) => props.bgColor || 'var(--light-color)'};
-    color: ${(props) => props.textColor || '#000'};
+  --primary-color: rgba(110, 231, 183, 1);
 
-    border: none;
-    font-size: 0.875rem;
-    min-width: 25ch;
-    min-heigth: 1.75rem;
-    line-height: 1.25rem;
+  color: ${(props) => props.textColor || getTextColor};
+  border: none;
 
-    &:focus {
-        outline: solid 1px var(--primary-color);
-        --shadow-color: 103deg 54% 46%;
-        --shadow-elevation-medium: 0.2px 0.2px 0.3px hsl(var(--shadow-color) / 0.44),
-            0.8px 0.8px 1.2px -0.9px hsl(var(--shadow-color) / 0.42),
-            2.1px 2px 3.2px -1.8px hsl(var(--shadow-color) / 0.4),
-            5.2px 4.9px 7.8px -2.7px hsl(var(--shadow-color) / 0.38);
+  font-size: 0.875rem;
+  min-width: 25ch;
+  min-heigth: 1.75rem;
+  line-height: 1.25rem;
 
-        box-shadow: var(--shadow-elevation-medium);
-    }
-    &:hover {
-        outline: solid 2px var(--primary-color);
-    }
+  &:focus {
+    outline: solid 1px var(--primary-color);
+    --shadow-color: 103deg 54% 46%;
+    ${shadow.md}
+  }
+  &:hover {
+    outline: solid 2px var(--primary-color);
+  }
 
-    /*TODO: implement global breakpoint  */
-    @media (max-width: 500px) {
-        width: 100%;
-    }
+  /*TODO: implement global breakpoint  */
+  @media (max-width: 500px) {
+    width: 100%;
+  }
 `;

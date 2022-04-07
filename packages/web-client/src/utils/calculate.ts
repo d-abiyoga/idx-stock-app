@@ -3,7 +3,7 @@ export const calculate = {
     currAvgPrice: number,
     currShareQuantity: number,
     addBuyPrice: number,
-    addBuyQuantity: number
+    addBuyQuantity: number,
   ): number => {
     const output =
       (currAvgPrice * currShareQuantity + addBuyPrice * addBuyQuantity) /
@@ -17,11 +17,9 @@ export const calculate = {
     currAvgPrice: number,
     currShareQuantity: number,
     addBuyPrice: number,
-    addBuyQuantity: number
+    addBuyQuantity: number,
   ): number => {
-    return (
-      (currAvgPrice * currShareQuantity + addBuyPrice * addBuyQuantity) * 100
-    );
+    return (currAvgPrice * currShareQuantity + addBuyPrice * addBuyQuantity) * 100;
   },
 
   currPotGL: (addBuyPrice: number, currAvgPrice: number): number => {

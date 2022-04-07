@@ -14,6 +14,7 @@
     "dev": "lerna run --parallel dev",
     "test": "lerna run jest",
     "test-web": "lerna exec 'yarn run test' --scope @idx-stock-app/web-client",
+    "storybook": "lerna exec 'yarn storybook' --scope @idx-stock-app/web-client",
     "prepare": "husky install"
   },
   "devDependencies": {
