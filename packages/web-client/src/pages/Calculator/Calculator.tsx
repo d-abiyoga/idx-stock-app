@@ -2,7 +2,7 @@ import { Link, Outlet } from 'react-router-dom';
 import Heading from '../../components/atoms/Heading';
 import { Main, Section } from './Calculator.styled';
 import { FaCalculator } from 'react-icons/fa';
-import { LinkIconCard } from '../../components/atoms/LinkIconCard/LinkIconCard';
+import LinkIconCard from '../../components/atoms/LinkIconCard';
 
 export const Calculator = () => {
   return (
