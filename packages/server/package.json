@@ -13,7 +13,8 @@
     "dev": "cross-env NODE_ENV=development nodemon ./src/server.ts",
     "test": "jest",
     "build": "tsc -p tsconfig.build.json",
-    "serve": "node dist/app.js",
+    "serve": "cross-env NODE_ENV=production node dist/server.js",
+    "start": "yarn serve",
     "precommit": "echo 'precommit script from server' && lint-staged"
   },
   "lint-staged": {
