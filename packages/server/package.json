@@ -6,7 +6,8 @@
   "author": "Dimas Abiyoga",
   "license": "MIT",
   "engines": {
-    "yarn": "1.x"
+    "yarn": "1.x",
+    "node": "17.8.0"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon ./src/server.ts",
