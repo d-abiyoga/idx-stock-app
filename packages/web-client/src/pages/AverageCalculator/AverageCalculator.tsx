@@ -13,7 +13,7 @@ export const AverageCalculator = () => {
   useEffect(() => {
     // TODO: Set up the URL for dev/build
     try {
-      axios.get('http://localhost:3001/company').then((result) => {
+      axios.get(`${import.meta.env.VITE_SERVER_URL}/company`).then((result) => {
         setCompanies(result.data.companies);
       });
     } catch (err) {
