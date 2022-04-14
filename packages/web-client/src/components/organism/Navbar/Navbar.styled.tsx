@@ -15,6 +15,7 @@ export const StyledNav = styled.nav`
   ${navTheme}
 
   @media (min-width: 500px) {
+    padding-top: 1rem;
     height: 100vh;
     position: fixed;
   }
@@ -33,6 +34,7 @@ export const StyledNav = styled.nav`
     li {
       list-style: none;
       a {
+        font-weight: 700;
         display: flex;
         gap: 0.5rem;
         align-items: end;
@@ -47,5 +49,15 @@ export const StyledNav = styled.nav`
         }
       }
     }
+  }
+`;
+
+export const Logo = styled.p`
+  font-family: 'Leckerli One', cursive;
+  font-size: 1.3rem;
+  color: white;
+  padding-inline: 1.2rem;
+  @media (max-width: 500px) {
+    display: none;
   }
 `;

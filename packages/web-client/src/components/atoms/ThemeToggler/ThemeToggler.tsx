@@ -13,9 +13,9 @@ export const ThemeToggler = () => {
           }
         >
           {theme.mode === 'dark' ? (
-            <BsFillSunFill size={32} color="#FFF" />
+            <BsFillSunFill size={24} color="#fdfd96" />
           ) : (
-            <BsFillMoonStarsFill size={32} color="#FFF" />
+            <BsFillMoonStarsFill size={24} color="#fdfd96" />
           )}
         </Button>
       )}

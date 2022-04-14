@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { StyledNav } from './Navbar.styled';
+import { Logo, StyledNav } from './Navbar.styled';
 import { AiFillCalculator, AiFillHome, AiFillQuestionCircle } from 'react-icons/ai';
 import { FC } from 'react';
 import ThemeToggler from '../../atoms/ThemeToggler';
@@ -8,7 +8,7 @@ export const Navbar: FC = (props) => {
   const iconSize = '2rem';
   return (
     <StyledNav id="main-navigation" {...props}>
-      <ThemeToggler />
+      <Logo>Idx Stock App</Logo>
       <ul>
         <li>
           <Link to="/">
@@ -60,6 +60,7 @@ export const Navbar: FC = (props) => {
           </Link>
         </li> */}
       </ul>
+      <ThemeToggler />
     </StyledNav>
   );
 };

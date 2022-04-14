@@ -28,7 +28,7 @@ export const AppContainer = styled.div`
     padding-inline: clamp(1rem, 5%, 3rem);
 
     @media (min-width: 500px) {
-      padding-left: clamp(5rem, 21%, 10rem);
+      padding-left: 12rem;
     }
 
     h1 {

@@ -10,13 +10,13 @@ export const Calculator = () => {
       <Main>
         <Heading level={1}>Calculator</Heading>
         <Section>
-          <Link to="average">
+          <Link to="/calculator/average">
             <LinkIconCard>
               <FaCalculator />
               <p>Average Calculator</p>
             </LinkIconCard>
           </Link>
-          <Link to="cagr">
+          <Link to="/calculator/cagr">
             <LinkIconCard>
               <FaCalculator />
               CAGR Calculator

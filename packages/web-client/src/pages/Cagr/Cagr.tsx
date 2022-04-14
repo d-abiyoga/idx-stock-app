@@ -53,6 +53,7 @@ export const Cagr = () => {
             type="number"
             inputRef={startingValueRef}
             step={0.01}
+            required
           />
           <InputItem
             inputFor="endValue"
@@ -60,6 +61,7 @@ export const Cagr = () => {
             type="number"
             inputRef={endValueRef}
             step={0.01}
+            required
           />
           <InputItem
             inputFor="period"
@@ -67,6 +69,7 @@ export const Cagr = () => {
             type="number"
             inputRef={periodRef}
             min={3}
+            required
           />
           <Button>Calculate</Button>
         </Card>

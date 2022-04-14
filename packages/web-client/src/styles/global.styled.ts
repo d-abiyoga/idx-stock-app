@@ -14,6 +14,7 @@ const getTextColor = style('mode', {
 });
 
 export const GlobalStyle = styled.createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap');
   ${cssReset}
 
   /* GLOBAL THEME*/
@@ -36,7 +37,7 @@ export const GlobalStyle = styled.createGlobalStyle`
   }
 
   .desktop-only {
-    @media (max-width: 700px) {
+    @media (max-width: 500px) {
       position: absolute;
       width: 1px;
       height: 1px;
